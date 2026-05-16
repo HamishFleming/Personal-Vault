@@ -9,7 +9,7 @@ services:
     environment:
       - PORT=8787
     user: "1000:1000"
-    command: ["web", "--addr", "0.0.0.0:8787", "/vault"]
+    command: ["web", "--addr", "0.0.0.0:8787", "/vault", "--sync"]
     healthcheck:
       test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1:8787/api/v1/health || exit 1"]
       interval: 30s
