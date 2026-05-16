@@ -1,0 +1,30 @@
+services:
+  granit:
+    build:
+      context: /home/hamish/ScratchPad/granit
+    container_name: granit
+    restart: unless-stopped
+    volumes:
+      - /home/hamish/Documents/vault:/vault
+    environment:
+      - PORT=8787
+    user: "1000:1000"
+    command: ["web", "--addr", "0.0.0.0:8787", "/vault"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1:8787/api/v1/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.granit.rule=Host(`vault.dev.local`)"
+      - "traefik.http.routers.granit.entrypoints=web"
+      - "traefik.http.services.granit.loadbalancer.server.port=8787"
+
+networks:
+  traefik:
+    name: traf-external
+    external: true
