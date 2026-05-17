@@ -1,9 +1,10 @@
 ---
+date: "2026-05-17"
+tags:
+    - tasks
 title: Tasks
-date: 2026-05-17
-tags: [tasks]
 ---
 
 # Tasks
 
-- [ ] 
+- [ ] Buy groceries ⏫ 📅 2026-05-18
