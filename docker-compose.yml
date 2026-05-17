@@ -5,7 +5,8 @@ services:
     container_name: granit
     restart: unless-stopped
     volumes:
-      - /home/hamish/Documents/vault:/vault
+      # - /home/hamish/Documents/vault:/vault
+      - /home/hamish/Documents/Vault:/vault
     environment:
       - PORT=8787
     user: "1000:1000"
