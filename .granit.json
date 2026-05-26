@@ -71,7 +71,7 @@
   "task_exclude_folders": [],
   "task_exclude_done": false,
   "pomodoro_goal": 8,
-  "tutorial_completed": false,
+  "tutorial_completed": true,
   "core_plugins": {
     "ai_templates": true,
     "blog_publisher": true,
